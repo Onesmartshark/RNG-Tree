@@ -1,13 +1,13 @@
 function getSeed() {
 	if (window.player !== undefined) return player.seed;
 	else if (localStorage.getItem("rng_madness") !== null ? JSON.parse(atob(localStorage.getItem("rng_madness"))) !== null : false) return JSON.parse(atob(localStorage.getItem("rng_madness"))).seed;
-	else return Math.round(Math.random()*1e9);
+	else return Math.round(Math.random()*2e9);
 }
 
 function RNGReset() {
 	let s = +prompt("Enter a seed (number from 1 to 999999999).");
 	if (isNaN(s)) return;
-	if (s<0 || s>=1e9 || s!=Math.round(s)) return;
+	if (s<0 || s>=2e9 || s!=Math.round(s)) return;
 	hardReset(false, s);
 }
 
