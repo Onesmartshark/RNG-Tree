@@ -1,13 +1,13 @@
 function getSeed() {
 	if (window.player !== undefined) return player.seed;
 	else if (localStorage.getItem("rng_madness") !== null ? JSON.parse(atob(localStorage.getItem("rng_madness"))) !== null : false) return JSON.parse(atob(localStorage.getItem("rng_madness"))).seed;
-	else return Math.round(Math.random()*1e63);
+	else return Math.round(Math.random()*1e12);
 }
 
 function RNGReset() {
-	let s = +prompt("Enter a seed (number from 1 to 999999999).");
+	let s = +prompt("Enter a seed (number from 1 to 1e63-1).");
 	if (isNaN(s)) return;
-	if (s<0 || s>=1e63 || s!=Math.round(s)) return;
+	if (s<0 || s>=1e12 || s!=Math.round(s)) return;
 	hardReset(false, s);
 }
 
@@ -19,7 +19,7 @@ const RNG_DATA = {
 		let l = Math.max(Math.min(Math.floor(random(getSeed()*row)*RNG_DATA.maxLayers+1), RNG_DATA.maxLayers), RNG_DATA.minLayers);
 		return Math.min(l, row);		
 	},
-	chars: 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*()'.split(''),
+	chars: 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*()~`[)])-+=_:<>?/|'.split(''),
 	types: ["normal", "static"],
 	rowReqs: {
 		1: new Decimal(10),
@@ -33,11 +33,11 @@ const RNG_DATA = {
 	rowBaseExps: {
 		1: new Decimal(0.5),
 		2: new Decimal(0.25),
-		3: new Decimal(0.01),
-		4: new Decimal(0.0025),
-		5: new Decimal(0.001),
-		6: new Decimal(0.0005),
-		7: new Decimal(0.00025),
+		3: new Decimal(0.1),
+		4: new Decimal(0.05),
+		5: new Decimal(0.025),
+		6: new Decimal(0.01),
+		7: new Decimal(0.005),
 	},
 	staticRowBaseExps: {
 		1: new Decimal(1),
@@ -50,12 +50,12 @@ const RNG_DATA = {
 	},
 	rowLayerTotalMultExps: {
 		1: new Decimal(0.5),
-		2: new Decimal(0.75),
-		3: new Decimal(0.875),
-		4: new Decimal(0.95),
-		5: new Decimal(0.98),
-		6: new Decimal(0.99),
-		7: new Decimal(0.995),
+		2: new Decimal(0.6),
+		3: new Decimal(0.7),
+		4: new Decimal(0.8),
+		5: new Decimal(0.9),
+		6: new Decimal(1),
+		7: new Decimal(1.1),
 	},
 }
 
