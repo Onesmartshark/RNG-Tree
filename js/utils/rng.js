@@ -12,7 +12,7 @@ function RNGReset() {
 }
 
 const RNG_DATA = {
-	rows: 5,
+	rows: 6,
 	minLayers: 1,
 	maxLayers: 5,
 	layers(row) { 
@@ -27,6 +27,7 @@ const RNG_DATA = {
 		3: new Decimal(1e25),
 		4: new Decimal(1e80),
 		5: new Decimal(1e300),
+		5: new Decimal(1e1000),
 	},
 	rowBaseExps: {
 		1: new Decimal(0.5),
@@ -34,6 +35,7 @@ const RNG_DATA = {
 		3: new Decimal(0.01),
 		4: new Decimal(0.0025),
 		5: new Decimal(0.001),
+		5: new Decimal(0.0005),
 	},
 	staticRowBaseExps: {
 		1: new Decimal(1),
@@ -41,6 +43,7 @@ const RNG_DATA = {
 		3: new Decimal(1.5),
 		4: new Decimal(2),
 		5: new Decimal(2.5),
+		5: new Decimal(3),
 	},
 	rowLayerTotalMultExps: {
 		1: new Decimal(0.5),
@@ -48,6 +51,7 @@ const RNG_DATA = {
 		3: new Decimal(0.875),
 		4: new Decimal(0.95),
 		5: new Decimal(0.98),
+		6: new Decimal(0.99),
 	},
 }
 
