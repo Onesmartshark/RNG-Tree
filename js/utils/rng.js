@@ -5,7 +5,7 @@ function getSeed() {
 }
 
 function RNGReset() {
-	let s = +prompt("Enter a seed (number from 1 to 1e63-1).");
+	let s = +prompt("Enter a seed (number from 1 to 1e12).");
 	if (isNaN(s)) return;
 	if (s<0 || s>=1e63 || s!=Math.round(s)) return;
 	hardReset(false, s);
