@@ -16,7 +16,7 @@ let VERSION = {
 	name: "Row 1",
 }
 
-let changelog = `Haha no changelog sorri`
+let changelog = `test that there is upd 1`
 
 let winText = `Congratulations! You have reached the end and beaten this game, but for now...`
 
