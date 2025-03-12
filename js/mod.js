@@ -12,8 +12,8 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.1",
-	name: "Row 1",
+	num: "0.2",
+	name: "modded_1",
 }
 
 let changelog = `test that there is upd 1`
